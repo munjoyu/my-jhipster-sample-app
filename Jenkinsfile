@@ -11,7 +11,7 @@ pipeline {
       }
       steps {
         sh '''echo Build
-.mvnw -B clean package'''
+./mvnw -B clean package'''
       }
     }
     stage('Backend') {
