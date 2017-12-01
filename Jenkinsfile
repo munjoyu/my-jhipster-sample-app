@@ -10,8 +10,8 @@ pipeline {
         
       }
       steps {
-        sh '''echo Build
-./mvnw -B -DskipTests clean package'''
+	sh './mvnw -B -DskipTests clean package'
+	tash name: ‘war’, includes: ‘target’
       }
     }
     stage('Backend') {
