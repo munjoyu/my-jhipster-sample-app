@@ -10,8 +10,8 @@ pipeline {
         
       }
       steps {
-	sh './mvnw -B -DskipTests clean package'
-	stash name: 'war', includes: 'target'
+	sh 'mvn -B -DskipTests clean package'
+	stash name: 'war', includes: 'target/**'
       }
     }
     stage('Backend') {
