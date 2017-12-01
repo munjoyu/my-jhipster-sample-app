@@ -11,7 +11,7 @@ pipeline {
       }
       steps {
 	sh './mvnw -B -DskipTests clean package'
-	tash name: ‘war’, includes: ‘target’
+	stash name: 'war', includes: 'target'
       }
     }
     stage('Backend') {
