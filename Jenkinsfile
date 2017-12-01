@@ -31,7 +31,7 @@ pipeline {
           },
           'Performance': {
             unstash 'war'
-            sh 'mvn -B gatling:execute'
+            sh './mvnw -B gatling:execute'
           }
         )
       }
