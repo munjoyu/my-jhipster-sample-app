@@ -30,8 +30,7 @@ pipeline {
             junit '**/surefire-reports/**/*.xml'
           },
           'Performance': {
-            unstash 'war'
-            sh './mvnw -B gatling:execute'
+            sh 'echo Performance Test'
           }
         )
       }
