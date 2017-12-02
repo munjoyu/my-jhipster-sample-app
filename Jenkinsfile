@@ -31,7 +31,8 @@ pipeline {
           },
           'Performance': {
             unstash 'war'
-            sh 'echo Performance Test'
+            sh 'echo ./mvnw -B gatling:execute'
+
           }
         )
       }
