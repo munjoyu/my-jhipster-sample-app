@@ -30,6 +30,7 @@ pipeline {
             junit '**/surefire-reports/**/*.xml'
           },
           'Performance': {
+            unstash 'war'
             sh 'echo Performance Test'
           }
         )
