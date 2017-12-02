@@ -23,18 +23,9 @@ pipeline {
       }
 
       steps {
-        parallel(
-          'Unit': {
-            unstash 'war'
-            sh 'mvn -B -DtestFailureIgnore test || exit 0'
-            junit '**/surefire-reports/**/*.xml'
-          },
-          'Performance': {
-            unstash 'war'
-            sh 'echo ./mvnw -B gatling:execute'
-
-          }
-        )
+        unstash 'war'
+        sh 'mvn -B -DtestFailureIgnore test || exit 0'
+        junit '**/surefire-reports/**/*.xml'
       }
     }
 
