@@ -25,6 +25,7 @@ pipeline {
       steps {
         unstash 'war'
         sh 'mvn -B -DtestFailureIgnore test || exit 0'
+        junit '**/surefire-reports/**/*.xml || exit 0'
         sh 'echo Static Analysis'
       }
     }
