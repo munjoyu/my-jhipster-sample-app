@@ -23,9 +23,7 @@ pipeline {
       }
 
       steps {
-        unstash 'war'
-        sh 'mvn -B -DtestFailureIgnore test || exit 0'
-        junit '**/surefire-reports/**/*.xml'
+        sh 'echo Backend'
       }
     }
 
