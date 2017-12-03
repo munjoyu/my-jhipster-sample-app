@@ -23,11 +23,16 @@ pipeline {
       }
 
       steps {
-        unstash 'war'
-        sh 'mvn -B -DtestFailureIgnore test'
-        junit '**/surefire-reports/**/*.xml || exit 0'
-        sh 'echo Static Analysis'
-      }
+        parallel(
+          'Unit': {
+            unstash 'war'
+            sh 'mvn -B -DtestFailureIgnore test || exit 0'
+          },
+          'Performance': {
+            unstash 'war'
+            sh 'echo Performance'
+          }
+      )}
     }
 
     stage('Frontend') {
