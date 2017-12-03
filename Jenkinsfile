@@ -36,7 +36,7 @@ pipeline {
     }
 
     stage('Frontend') {
-      agent { docker ‘node:alpine’ }
+      agent { docker 'node:alpine' }
       steps {
         sh 'node -version'
         sh 'yarn install'
