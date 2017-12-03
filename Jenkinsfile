@@ -36,10 +36,15 @@ pipeline {
     }
 
     stage('Frontend') {
+      agent { docker ‘node:alpine’ }
       steps {
-        sh 'echo Static Analysis'
+        sh 'node -version'
+        sh 'yarn install'
+        sh 'yarn global add gulp-cli'
+        sh 'gulp test'
       }
     }
+
     stage('Static Analysis') {
       steps {
         sh 'echo Static Analysis'
