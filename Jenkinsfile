@@ -23,7 +23,8 @@ pipeline {
       }
 
       steps {
-        sh 'echo Backend'
+        unstash 'war'
+        sh 'echo Static Analysis'
       }
     }
 
