@@ -30,7 +30,7 @@ pipeline {
           },
           'Performance': {
             unstash 'war'
-            sh 'echo Performance'
+            sh 'echo New Performance'
           }
       )}
     }
